@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 If the error 'Could not find module "@ angular-devkit / build-angular"' is displayed, execute the command below using cmd:
-npm install --save-dev @ angular-devkit / build-angular
+**npm install --save-dev @ angular-devkit / build-angular
 
 ## Development server
 
