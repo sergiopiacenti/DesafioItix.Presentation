@@ -29,14 +29,6 @@ export class ConsultaService {
       );
   }
 
-  // getFilteredConsultas(id: number, dataInicial: Date, dataFinal: Date, nome: String, dataNascimento: Date, observacoes: String): Observable<Consulta[]> {
-  //   return this.http.get<Consulta[]>(this.myAppUrl + this.myApiUrl + "GetFilteredConsultas/" + nome + "/" + observacoes + "/" + id + "/" + dataInicial + "/" + dataFinal + "/" + dataNascimento)
-  //     .pipe(
-  //       retry(1),
-  //       catchError(this.errorHandler)
-  //     );
-  // }
-
   getFilteredConsultas(consulta): Observable<Consulta[]> {
     return this.http.post<Consulta[]>(this.myAppUrl + this.myApiUrl + "FilteredConsultas", JSON.stringify(consulta), this.httpOptions)
       .pipe(
