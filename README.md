@@ -5,7 +5,7 @@ Before everything:
 2. Run the command below replacing the term &lt;directory> with the directory of the downloaded and unzipped file folder:  
 **cd &lt;directory>**
 3. Run the command:  
-**npm install --save-dev @ angular-devkit / build-angular**
+**npm install --save-dev @angular-devkit/build-angular**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
