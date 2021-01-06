@@ -1,9 +1,13 @@
 # App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
+Before everything:
+1. Open the Command Prompt.
+2. Run the command below replacing the term <directory> in the command below with the directory of the downloaded and unzipped file folder:  
+**cd <directory>**
+3. Run the command:  
+**npm install --save-dev @ angular-devkit / build-angular**
 
-If the error 'Could not find module "@ angular-devkit / build-angular"' is displayed, execute the command below using cmd:  
-**npm install --save-dev @angular-devkit/build-angular**
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 ## Development server
 
