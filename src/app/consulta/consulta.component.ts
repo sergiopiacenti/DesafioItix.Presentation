@@ -77,7 +77,6 @@ export class ConsultaComponent implements OnInit {
             this.consultaService.updateConsulta(this.consulta.id, this.consulta)
               .subscribe(() => {
                 this.alertService.success('Consulta salva com sucesso.', { autoClose: true });
-                //this.router.navigate([this.router.url]);
               });
           }
         }
