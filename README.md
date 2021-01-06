@@ -2,7 +2,7 @@
 
 Before everything:
 1. Open the Command Prompt.
-2. Run the command below replacing the term &lt;directory> with the directory of the downloaded and unzipped file folder:
+2. Run the command below replacing the term &lt;directory> with the directory of the downloaded and unzipped file folder:  
 **cd &lt;directory>**
 3. Run the command:  
 **npm install --save-dev @ angular-devkit / build-angular**
