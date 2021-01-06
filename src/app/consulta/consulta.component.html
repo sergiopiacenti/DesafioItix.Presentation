@@ -1,0 +1,50 @@
+<h1>{{actionType}} Consulta</h1>
+<br />
+<form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+    <alert> </alert>
+    <div class="row">
+        <h4 class="col-md-12">Dados da Consulta</h4>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label class=" control-label">Id</label>
+            <input class="form-control" type="text" formControlName="consultaId" [(ngModel)]="consulta.id" disabled>
+        </div>
+        <div class="col-md-3">
+            <label class=" control-label">Data e Hora Inicial</label>
+            <input class="form-control" type="datetime-local" formControlName="dataInicial"
+                [(ngModel)]="consulta.dataInicial" required>
+        </div>
+        <div class="col-md-3">
+            <label class=" control-label">Data e Hora Final</label>
+            <input class="form-control" type="datetime-local" formControlName="dataFinal"
+                [(ngModel)]="consulta.dataFinal" required>
+        </div>
+    </div>
+    
+    <alert id="saveSuccessAlert"> </alert>    
+    <div class="row">
+        <h4 class="col-md-12">Dados do Paciente</h4>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class=" control-label">Nome</label>
+            <input class="form-control" type="text" formControlName="nome" [(ngModel)]="consulta.nome" required>
+        </div>
+        <div class="col-md-3">
+            <label class=" control-label">Data de Nascimento</label>
+            <input class="form-control" type="date" formControlName="dataNascimento"
+                [ngModel]="dataPipe.transform(consulta.dataNascimento, 'yyyy-MM-dd')"
+                [(ngModel)]="consulta.dataNascimento">
+        </div>
+        <div class="col-md-5">
+            <label class=" control-label">Observações</label>
+            <input class="form-control" type="text" formControlName="observacoes" [(ngModel)]="consulta.observacoes">
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success float-right">Save</button>
+        <button class="btn btn-secondary float-left" (click)="cancel()">Cancel</button>
+    </div>
+</form>

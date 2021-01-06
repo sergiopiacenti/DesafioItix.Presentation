@@ -1,0 +1,67 @@
+<h1>Consultas</h1>
+<form [formGroup]="form" (ngSubmit)="filteredSearch()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label class=" control-label">Id</label>
+      <input class="form-control" type="number" formControlName="consultaId" [(ngModel)]="consultaId">
+    </div>
+    <div class="col-md-4">
+      <label class=" control-label">Data e Hora Inicial</label>
+      <input class="form-control" type="datetime-local" formControlName="dataInicial" [(ngModel)]="dataInicial"
+        required>
+    </div>
+    <div class="col-md-4">
+      <label class=" control-label">Data e Hora Final</label>
+      <input class="form-control" type="datetime-local" formControlName="dataFinal" [(ngModel)]="dataFinal" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label class=" control-label">Nome</label>
+      <input class="form-control" type="text" formControlName="nome" [(ngModel)]="nome" required>
+    </div>
+    <div class="col-md-4">
+      <label class=" control-label">Data de Nascimento</label>
+      <input class="form-control" type="date" formControlName="dataNascimento"
+        [ngModel]="dataPipe.transform(dataNascimento, 'yyyy-MM-dd')" [(ngModel)]="dataNascimento">
+    </div>
+    <div class="col-md-4">
+      <label class=" control-label">Observações</label>
+      <input class="form-control" type="text" formControlName="observacoes" [(ngModel)]="observacoes">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success float-left">Pesquisar </button>
+    <a [routerLink]="['/consulta/']" class="btn btn-primary float-right mb-3">Nova Consulta</a>
+  </div>
+
+  <table class="table table-sm table-hover" *ngIf="(consultas$ | async)?.length>0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Data / Hora Inicial</th>
+        <th>Data / Hora Final</th>
+        <th>Observações</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consulta of (consultas$ | async)">
+        <td>{{ consulta.id }}</td>
+        <td>{{ consulta.nome }}</td>
+        <td>{{ consulta.dataNascimento | date: "dd/MM/y"}}</td>
+        <td>{{ consulta.dataInicial | date: "dd/MM/y HH:mm"}}</td>
+        <td>{{ consulta.dataFinal | date: "dd/MM/y HH:mm" }}</td>
+        <td>{{ consulta.observacoes }}</td>
+        <td><a [routerLink]="['/consulta/', consulta.id]" class="btn btn-primary btn-sm float-right">Editar</a></td>
+        <td><a [routerLink]="" (click)="delete(consulta.id)" class="btn btn-danger btn-sm float-right">Excluir</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col-md-12">
+    <p *ngIf="!(consultas$ | async)"><em>Carregando...</em></p>
+  </div>
+</form>
